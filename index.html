@@ -1,0 +1,67 @@
+/*
+  pages/index.jsx
+  Página inicial do site Roblox Codes Hub — mostra a seção de jogos e notícias.
+  Inclui o componente RobloxGamesSection e um bloco de notícias estático (ou puxado via API depois).
+*/
+
+import Head from 'next/head';
+import RobloxGamesSection from '@/components/RobloxGamesSection';
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>Roblox Codes Hub — Ganhe Robux, Códigos e Notícias</title>
+        <meta name="description" content="Site de códigos, dicas e novidades sobre jogos Roblox." />
+      </Head>
+
+      <main className="min-h-screen bg-gradient-to-b from-[#071029] to-[#071a2a] text-gray-100 font-sans">
+        <header className="border-b border-white/5 bg-black/10 py-6">
+          <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <h1 className="text-2xl font-bold text-cyan-400">Roblox Codes Hub</h1>
+            <nav className="mt-4 sm:mt-0 flex gap-4 text-sm">
+              <a href="#jogos" className="hover:text-cyan-400">Jogos</a>
+              <a href="#noticias" className="hover:text-cyan-400">Notícias</a>
+              <a href="#sobre" className="hover:text-cyan-400">Sobre</a>
+            </nav>
+          </div>
+        </header>
+
+        {/* HERO */}
+        <section className="py-16 text-center px-6">
+          <h2 className="text-4xl font-extrabold mb-3">Códigos e Dicas para Roblox!</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">Descubra códigos atualizados, ganhe recompensas, aprenda a ganhar Robux e fique por dentro das notícias do mundo Roblox.</p>
+        </section>
+
+        {/* SEÇÃO DE JOGOS */}
+        <section id="jogos" className="py-10 border-t border-white/10">
+          <RobloxGamesSection />
+        </section>
+
+        {/* SEÇÃO DE NOTÍCIAS */}
+        <section id="noticias" className="py-16 px-6 max-w-6xl mx-auto">
+          <h3 className="text-2xl font-bold mb-6 text-cyan-400">Últimas notícias do Roblox</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1,2,3].map(i => (
+              <article key={i} className="bg-white/5 p-4 rounded-xl border border-white/10 shadow">
+                <h4 className="font-semibold mb-2">Nova atualização #{i}</h4>
+                <p className="text-sm text-gray-300 mb-3">Roblox acaba de lançar uma nova atualização cheia de novidades e eventos especiais! Saiba mais sobre recompensas e novos modos de jogo.</p>
+                <a href="#" className="text-cyan-400 text-sm font-semibold">Ler mais →</a>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* SOBRE */}
+        <section id="sobre" className="py-20 bg-black/20 text-center">
+          <h3 className="text-2xl font-bold mb-4 text-cyan-400">Sobre o Roblox Codes Hub</h3>
+          <p className="max-w-2xl mx-auto text-gray-300">Este site foi criado para reunir em um só lugar as melhores dicas, códigos e notícias sobre Roblox. Atualizado constantemente com conteúdo relevante para a comunidade de jogadores.</p>
+        </section>
+
+        <footer className="border-t border-white/10 py-6 text-center text-sm text-gray-400 bg-black/10">
+          © {new Date().getFullYear()} Roblox Codes Hub — Feito com ❤️ por fãs de Roblox.
+        </footer>
+      </main>
+    </>
+  );
+}
