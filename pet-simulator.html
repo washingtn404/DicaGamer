@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jailbreak — DicaGamer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand"><div class="logo">DG</div><div><div style="font-weight:800;color:#fff;">DicaGamer</div><div style="font-size:12px;color:#d1d5db;">Códigos, guias e notícias</div></div></div>
+      <nav class="primary">
+        <a href="/">Início</a><a href="/jailbreak.html">Jailbreak</a><a href="/blox-fruits.html">Blox Fruits</a><a href="/pet-simulator.html">Pet Simulator</a>
+        <div class="search"><input placeholder="Buscar códigos..." /></div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="adstrip"><div class="wrap" style="justify-content:center"><div style="width:970px;height:90px;display:flex;align-items:center;justify-content:center">ESPAÇO PARA ANÚNCIO 970x90</div></div></div>
+
+  <main class="container">
+    <article class="article">
+      <div class="kicker">Roblox • Jailbreak</div>
+      <h1 id="pageTitle" class="title">Jailbreak — códigos atualizados</h1>
+      <p id="pageLead" class="lead">Aqui você encontra códigos atualizados para Jailbreak.</p>
+
+      <img src="https://via.placeholder.com/1200x600?text=Jailbreak" class="heroimg" alt="Jailbreak">
+
+      <div class="article-grid">
+        <div>
+          <section id="jogos">
+            <div class="codesbox">
+              <h4>Códigos ativos</h4>
+              <ul class="codes-list" id="codesList">
+                <li class="muted">Carregando códigos...</li>
+              </ul>
+
+              <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+                <input id="manualCode" placeholder="Cole um código aqui..." style="padding:8px;border-radius:6px;border:1px solid #e6e9ee;flex:1" />
+                <button id="manualCopy" class="btn">Copiar</button>
+              </div>
+              <p class="muted" style="margin-top:10px">Clique em um código para copiar automaticamente.</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebox">
+          <div class="widget"><h5>Ofertas</h5><div style="height:160px;background:#fafafa;display:flex;align-items:center;justify-content:center">AD 300x250</div></div>
+          <div class="widget" style="margin-top:12px"><h5>Top posts</h5>
+            <div class="news-card"><img class="thumb-small" src="https://via.placeholder.com/72x56?text=1"><div><div style="font-weight:700">Blox Fruits — códigos</div><div class="muted" style="font-size:13px">há 3 dias</div></div></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <aside class="sidebar">
+      <div class="widget"><h5>Newsletter</h5><p class="muted">Receba códigos por e-mail.</p><input placeholder="seu@exemplo.com" style="width:100%;padding:8px;margin-top:8px;border-radius:6px"/><button class="btn" style="width:100%;margin-top:8px">Inscrever</button></div>
+      <div class="widget"><h5>Anúncio</h5><div style="height:250px;background:#fafafa;display:flex;align-items:center;justify-content:center">AD 300x250</div></div>
+    </aside>
+  </main>
+
+  <footer><div style="max-width:1180px;margin:0 auto;padding:18px;color:#6b7280">© <span id="year"></span> DicaGamer — Feito por fãs</div></footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // carregar códigos do slug 'jailbreak' (arquivo /data/jailbreak.json)
+    loadCodes('jailbreak');
+
+    document.getElementById('manualCopy').addEventListener('click', ()=>{
+      const manual = document.getElementById('manualCode').value.trim();
+      if(!manual){ alert('Cole um código no campo.'); return; }
+      navigator.clipboard?.writeText(manual).then(()=> alert('Código copiado: ' + manual)).catch(()=> alert('Não foi possível copiar.'));
+    });
+  </script>
+</body>
+</html>
