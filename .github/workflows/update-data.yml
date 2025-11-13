@@ -1,0 +1,28 @@
+name: Atualizar dados de códigos
+on:
+  schedule:
+    - cron: '0 10 * * *'   # roda todo dia às 10:00 UTC (ajuste)
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Baixar JSON (exemplo para jailbreak)
+        run: |
+          curl -sS -o data/jailbreak.json "https://fonte-exemplo.com/api/jailbreak.json"
+
+      - name: Commitar e push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jailbreak.json
+          if git diff --quiet --cached; then
+            echo "Sem alterações"
+          else
+            git commit -m "Atualiza dados de jailbreak (GitHub Actions)"
+            git push
+          fi
